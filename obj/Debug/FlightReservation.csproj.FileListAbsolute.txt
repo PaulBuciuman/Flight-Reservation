@@ -1,0 +1,12 @@
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\obj\Debug\FlightReservation.csprojAssemblyReference.cache
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\obj\Debug\FlightReservation.csproj.CoreCompileInputs.cache
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\FlightReservation.exe.config
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\FlightReservation.exe
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\FlightReservation.pdb
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\EntityFramework.dll
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\EntityFramework.xml
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\obj\Debug\FlightReservation.csproj.CopyComplete
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\obj\Debug\FlightReservation.exe
+C:\Users\Paul\source\repos\FlightReservation\FlightReservation\obj\Debug\FlightReservation.pdb

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="flight_reservationModelStoreContainer" CdmEntityContainer="flight_reservationEntities">
+    <EntitySetMapping Name="Airports">
+      <EntityTypeMapping TypeName="flight_reservationModel.Airport">
+        <MappingFragment StoreEntitySet="Airport">
+          <ScalarProperty Name="id_airport" ColumnName="id_airport" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="flight_reservationModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="id_customer" ColumnName="id_customer" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flights">
+      <EntityTypeMapping TypeName="flight_reservationModel.Flight">
+        <MappingFragment StoreEntitySet="Flight">
+          <ScalarProperty Name="flight_number" ColumnName="flight_number" />
+          <ScalarProperty Name="source_airport" ColumnName="source_airport" />
+          <ScalarProperty Name="destination_airport" ColumnName="destination_airport" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="duration" ColumnName="duration" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="company_name" ColumnName="company_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservations">
+      <EntityTypeMapping TypeName="flight_reservationModel.Reservation">
+        <MappingFragment StoreEntitySet="Reservation">
+          <ScalarProperty Name="id_reservation" ColumnName="id_reservation" />
+          <ScalarProperty Name="flight" ColumnName="flight" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

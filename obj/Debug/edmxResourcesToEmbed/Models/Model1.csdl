@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="flight_reservationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Airport">
+    <Key>
+      <PropertyRef Name="id_airport" />
+    </Key>
+    <Property Name="id_airport" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="city" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Flights" Relationship="Self.FK__Flight__source_a__2D27B809" FromRole="Airport" ToRole="Flight" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id_customer" />
+    </Key>
+    <Property Name="id_customer" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="25" FixedLength="true" Unicode="true" />
+    <Property Name="phone_number" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Reservations" Relationship="Self.reservation_customer_fk" FromRole="Customer" ToRole="Reservation" />
+  </EntityType>
+  <EntityType Name="Flight">
+    <Key>
+      <PropertyRef Name="flight_number" />
+    </Key>
+    <Property Name="flight_number" Type="Int32" Nullable="false" />
+    <Property Name="source_airport" Type="Int32" />
+    <Property Name="destination_airport" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="duration" Type="Int32" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="company_name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Airport" Relationship="Self.FK__Flight__source_a__2D27B809" FromRole="Flight" ToRole="Airport" />
+  </EntityType>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="id_reservation" />
+    </Key>
+    <Property Name="id_reservation" Type="Int32" Nullable="false" />
+    <Property Name="flight" Type="Int32" />
+    <Property Name="customer" Type="Int32" />
+    <Property Name="seat_number" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Customer1" Relationship="Self.reservation_customer_fk" FromRole="Reservation" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK__Flight__source_a__2D27B809">
+    <End Role="Airport" Type="Self.Airport" Multiplicity="0..1" />
+    <End Role="Flight" Type="Self.Flight" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Airport">
+        <PropertyRef Name="id_airport" />
+      </Principal>
+      <Dependent Role="Flight">
+        <PropertyRef Name="source_airport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="reservation_customer_fk">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Reservation" Type="Self.Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="id_customer" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="customer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="flight_reservationEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Airports" EntityType="Self.Airport" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Flights" EntityType="Self.Flight" />
+    <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+    <AssociationSet Name="FK__Flight__source_a__2D27B809" Association="Self.FK__Flight__source_a__2D27B809">
+      <End Role="Airport" EntitySet="Airports" />
+      <End Role="Flight" EntitySet="Flights" />
+    </AssociationSet>
+    <AssociationSet Name="reservation_customer_fk" Association="Self.reservation_customer_fk">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Reservation" EntitySet="Reservations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
